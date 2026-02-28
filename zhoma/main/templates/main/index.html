@@ -1,0 +1,12 @@
+
+    <h1>Знаменитые люди</h1>
+    <p>Количество: {{ celebrities|length }}</p>
+{% for c in celebrities %}
+<div>
+    <h2>{{ c.name }}</h2>
+    <p>{{ c.profession }}</p>
+    <p>{{ c.discription }}</p>
+    <p>{{ c.date }}</p>
+    <hr>
+</div>
+{% endfor %}

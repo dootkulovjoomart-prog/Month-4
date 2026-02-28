@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.swp
+*.swo
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3      # если используешь SQLite
+/media         # если есть медиа-файлы, загруженные пользователями
+/staticfiles   # сгенерированные статические файлы
+db.sqlite3     # файл локальной базы данных
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Environment
+env/
+venv/
+ENV/
+.venv/
+.env          # если используешь файл с переменными окружения
