@@ -1,12 +1,19 @@
+{% extends 'main/home.html'%}
+{% block content %}
 
     <h1>Знаменитые люди</h1>
-    <p>Количество: {{ celebrities|length }}</p>
 {% for c in celebrities %}
-<div>
+<div class = 'book' style="width: auto; border: 1px solid ; border-color : black">
     <h2>{{ c.name }}</h2>
+    <img src="{{c.image.url}}"width="200" height="150">
     <p>{{ c.profession }}</p>
     <p>{{ c.discription }}</p>
+    <p>{{ c.content }}</p>
     <p>{{ c.date }}</p>
+    <a href="/celebrity/{{c.id}}">
+        <button>Read</button>
+    </a>
     <hr>
 </div>
 {% endfor %}
+{% endblock content %}
