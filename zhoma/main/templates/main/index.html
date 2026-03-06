@@ -1,7 +1,7 @@
 {% extends 'main/home.html'%}
 {% block content %}
 
-    <h1>Знаменитые люди</h1>
+    <h1>Знаменитые футболисты</h1>
 {% for c in celebrities %}
 <div class = 'book' style="width: auto; border: 1px solid ; border-color : black">
     <h2>{{ c.name }}</h2>
@@ -9,6 +9,14 @@
     <p>{{ c.profession }}</p>
     <p>{{ c.discription }}</p>
     <p>{{ c.content }}</p>
+     <p>Жена : {{ c.wife }}</p>
+   <p>
+Трофеи:
+{% for t in c.trophy.all %}
+    {{ t.name }}{% if not forloop.last %}, {% endif %}
+{% endfor %}
+</p>
+    <p>Клуб: {{ c.club }}</p>
     <p>{{ c.date }}</p>
     <a href="/celebrity/{{c.id}}">
         <button>Read</button>

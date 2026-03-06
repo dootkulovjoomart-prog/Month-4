@@ -1,0 +1,45 @@
+{% extends 'main/home.html' %}
+
+{% block content %}
+
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Имя">
+    <p></p>
+    <input type="file" name="image">
+    <input type="text" name="profession" placeholder="Профессия">
+    <p></p>
+    <textarea name="discription" placeholder="Биография"></textarea>
+    <p></p>
+    <textarea name="content" placeholder="Контент"></textarea>
+    <input type="date" name="date">
+    <p></p>
+
+    <select name="club">
+        <option value="">Выберите клуб</option>
+        {% for club in clubs %}
+            <option value="{{ club.id }}">{{ club.name }}</option>
+        {% endfor %}
+    </select>
+    <p></p>
+
+    <select name="wife">
+        <option value="">Выберите жену</option>
+        {% for w in wives %}
+            <option value="{{ w.id }}">{{ w.wife }}</option>
+        {% endfor %}
+    </select>
+    <p></p>
+
+    <label>Трофеи:</label>
+    {% for t in trophies %}
+        <input type="checkbox" name="trophy" value="{{ t.id }}">{{ t.name }}
+    {% endfor %}
+    <p></p>
+
+    <button type="submit">Создать</button>
+    <p></p>
+</form>
+{% endblock content %}

@@ -1,11 +1,19 @@
    <h1>Знаменитые люди</h1>
 
 <div class = 'book' style="width: auto; border: 1px solid ; border-color : black">
-    <img src="{{c.image.url}}"width="200" height="150">
+    <img src="{{celebrities.image.url}}"width="200" height="150">
     <h2>{{ celebrities.name }}</h2>
     <p>{{ celebrities.profession }}</p>
     <p>{{ celebrities.discription }}</p>
     <p>{{ celebrities.content }}</p>
+    <p>{{ celebrities.club}}</p>
+    <p>Жена : {{celebrities.wife }}</p>
+      <p>
+Трофеи:
+{% for t in celebrities.trophy.all %}
+    {{ t.name }}{% if not forloop.last %}, {% endif %}
+{% endfor %}
+</p>
     <p>{{ celebrities.date }}</p>
     <hr>
 </div>
