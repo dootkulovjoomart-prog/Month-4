@@ -1,0 +1,13 @@
+from django import forms
+from .models import Club , Trophy 
+class CreateCelebrities(forms.Form):
+    name = forms.CharField(max_length=100)
+    image = forms.ImageField()
+    profession = forms.CharField(max_length=100)
+    discription = forms.CharField(widget=forms.Textarea)
+    content = forms.CharField(widget=forms.Textarea)
+    date = forms.DateField()
+    
+    club = forms.ModelChoiceField(queryset = Club.objects.all())
+    trophy = forms.ModelMultipleChoiceField(queryset=Trophy.objects.all() , widget=forms.CheckboxSelectMultiple)
+

@@ -22,6 +22,22 @@
         <li class="nav-item">
           <a class="nav-link" href="/celebrities/">Celebrity</a>
         </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/create-celebrities/">Create celebrities</a>
+        </li>
+           {% if request.user.is_authenticated %}
+         <li class="nav-item">
+          <a class="nav-link" href="/sign_out/">Sign out</a>
+        </li>
+        {% else %}
+         </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/sign_up/">Sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sign_in/">Sign in</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>
