@@ -20,7 +20,7 @@ class Celebrities(models.Model):
     name = models.CharField('И.Ф.О', max_length=50)
     image = models.ImageField(null=True , blank = True , upload_to= 'main')
     profession = models.CharField('Профессия' , max_length=50)
-    discription = models.TextField('Биграфия')
+    discription = models.TextField('Биография')
     content = models.TextField('Контент' , null=True , blank= True )
     date = models.DateField('Дата публикации') 
     club = models.ForeignKey(Club , on_delete= models.CASCADE , null=True) 

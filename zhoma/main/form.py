@@ -11,3 +11,8 @@ class CreateCelebrities(forms.Form):
     club = forms.ModelChoiceField(queryset = Club.objects.all())
     trophy = forms.ModelMultipleChoiceField(queryset=Trophy.objects.all() , widget=forms.CheckboxSelectMultiple)
 
+
+class SearchForm(forms.Form):
+    search = forms.CharField(required=False)
+    club = forms.ModelChoiceField(queryset=Club.objects.all(), required=False)
+    trophy = forms.ModelMultipleChoiceField(queryset=Trophy.objects.all(),required=False)
