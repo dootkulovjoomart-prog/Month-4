@@ -8,6 +8,13 @@ from django.db.models import Q
 def celebrity_list(request):
     if request.method == "GET":
         all_celebrities = Celebrities.objects.all()
+        limit = 3
+        page = int(request.GET.get("page", 1))
+        max_page = all_celebrities.count() // limit +1
+        list_pages = range(1 , max_page +1 )
+        start = (page -1)* limit
+        end = page * limit 
+        all_celebrities = all_celebrities[start:end]
         form = SearchForm(request.GET)
         if not form.is_valid():
             return HttpResponse("Error")
@@ -20,7 +27,7 @@ def celebrity_list(request):
             all_celebrities = all_celebrities.filter(club=club)
         if trophy:
             all_celebrities = all_celebrities.filter(trophy__in=trophy)
-        return render(request , 'main/index.html',{'celebrities' : all_celebrities, "form" : form})
+        return render(request , 'main/index.html',{'celebrities' : all_celebrities, "form" : form , "list_pages":list_pages})
 
 
 def look_detail(request , id ):
