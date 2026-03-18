@@ -13,8 +13,14 @@ def celebrity_list(request):
         if not form.is_valid():
             return HttpResponse("Error")
         search = form.cleaned_data.get("search", None)
+        club = form.cleaned_data.get("club", None)
+        trophy = form.cleaned_data.get("trophy", None)
         if search :
             all_celebrities = all_celebrities.filter(Q(name__icontains = search))
+        if club:
+            all_celebrities = all_celebrities.filter(club=club)
+        if trophy:
+            all_celebrities = all_celebrities.filter(trophy__in=trophy)
         limit = 3
         page = int(request.GET.get("page", 1))
         max_page =math.ceil(all_celebrities.count() / limit )
